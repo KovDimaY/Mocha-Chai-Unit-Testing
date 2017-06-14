@@ -3,6 +3,7 @@ var beginner = require("../app/algorithms-set-1");
 
 
 describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
+  // test 1       -------------------------------------------------------------------
   describe("Prime Numbers Checker", function() {
   	it("2 is a prime number", function() {
   		var result = beginner.isPrime(2);
@@ -38,6 +39,8 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
     });
   });
 
+
+  // test 2       -------------------------------------------------------------------
   describe("Prime Factors Finder", function() {
   	it("Prime divisors of 1", function() {
   		var result = beginner.primeFactors(1);
@@ -70,6 +73,161 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
     it("Prime divisors of -60", function() {
   		var result = beginner.primeFactors(-60);
       	expect(result).to.deep.equal([2, 2, 3, 5]);
+    });
+  });
+
+
+  // test 3       -------------------------------------------------------------------
+  describe("Fibonacci Series", function() {
+  	it("Element number 0", function() {
+  		var result = beginner.fibonacci(0);
+      	expect(result).to.equal(0);
+    });
+    it("Element number 1", function() {
+  		var result = beginner.fibonacci(1);
+      	expect(result).to.equal(1);
+    });
+    it("Element number 2", function() {
+  		var result = beginner.fibonacci(2);
+      	expect(result).to.equal(1);
+    });
+    it("Element number 3", function() {
+  		var result = beginner.fibonacci(3);
+      	expect(result).to.equal(2);
+    });
+    it("Element number 7", function() {
+  		var result = beginner.fibonacci(7);
+      	expect(result).to.equal(13);
+    });
+    it("Element number 20", function() {
+  		var result = beginner.fibonacci(20);
+      	expect(result).to.equal(6765);
+    });
+    it("Element number 50.0", function() {
+  		var result = beginner.fibonacci(50.0);
+      	expect(result).to.equal(12586269025);
+    });
+    it("Element number 10.5", function() {
+  		var result = beginner.fibonacci(10.5);
+      	expect(result).to.equal(null);
+    });
+    it("Element number -3", function() {
+  		var result = beginner.fibonacci(-3);
+      	expect(result).to.equal(null);
+    });    
+  });
+
+
+  // test 4       -------------------------------------------------------------------
+  describe("The Greates Common Divisor", function() {
+  	it("GCD(a, b) = GCD(b, a)", function() {
+  		for (var i = 0; i < 20; i++) {
+  			var number1 = Math.floor(Math.random() * 1000);
+  			var number2 = Math.floor(Math.random() * 1000);
+  			var direct = beginner.greatestCommonDivisor(number1, number2);
+			var revers = beginner.greatestCommonDivisor(number2, number1);
+      		expect(direct).to.equal(revers);
+  		}  		
+    });
+    it("GCD(a, a) = a", function() {
+    	for (var i = 0; i < 20; i++) {
+    		var number = Math.floor(Math.random() * 1000);
+	  		var result = beginner.greatestCommonDivisor(number, number);
+	      	expect(result).to.equal(number);
+      	}
+    });
+    it("GCD(a, 0) = a", function() {
+    	for (var i = 0; i < 20; i++) {
+    		var number = Math.floor(Math.random() * 1000);
+	  		var result = beginner.greatestCommonDivisor(number, 0);
+	      	expect(result).to.equal(number);
+      	}
+    });
+    it("GCD(a, 1) = 1", function() {
+    	for (var i = 0; i < 20; i++) {
+    		var number = Math.floor(Math.random() * 1000);
+	  		var result = beginner.greatestCommonDivisor(number, 1);
+	      	expect(result).to.equal(1);
+      	}
+    });
+    it("GCD(n, n+1) = 1", function() {
+    	for (var i = 0; i < 20; i++) {
+    		var number = Math.floor(Math.random() * 1000);
+	  		var result = beginner.greatestCommonDivisor(number, number + 1);
+	      	expect(result).to.equal(1);
+      	}
+    });
+    it("GCD(not integer, not integer) = null", function() {
+    	for (var i = 0; i < 20; i++) {
+    		var number1 = Math.random() * 1000;
+    		var number2 = Math.random() * 1000;
+	  		var result = beginner.greatestCommonDivisor(number1, number2);
+	      	expect(result).to.equal(null);
+      	}
+    });
+    it("GCD(not integer, integer) = null", function() {
+    	for (var i = 0; i < 20; i++) {
+    		var number1 = Math.random() * 1000;
+    		var number2 = Math.floor(Math.random() * 1000);
+	  		var result = beginner.greatestCommonDivisor(number1, number2);
+	      	expect(result).to.equal(null);
+      	}
+    });
+    it("GCD(12, 30) = 6", function() {
+  		var result = beginner.greatestCommonDivisor(12, 30);
+	    expect(result).to.equal(6);
+    });
+    it("GCD(-84, 184) = 4", function() {
+  		var result = beginner.greatestCommonDivisor(-84, 184);
+	    expect(result).to.equal(4);
+    });
+    it("GCD(4553, 8164) = 157", function() {
+  		var result = beginner.greatestCommonDivisor(4553, 8164);
+	    expect(result).to.equal(157);
+    });
+    it("GCD(-1000, -20) = 20", function() {
+  		var result = beginner.greatestCommonDivisor(-1000, -20);
+	    expect(result).to.equal(20);
+    });
+    it("GCD(223, 331) = 1", function() {
+  		var result = beginner.greatestCommonDivisor(223, 331);
+	    expect(result).to.equal(1);
+    });
+  });
+
+
+  // test 5       -------------------------------------------------------------------
+  describe("Removing Duplicates", function() {
+  	it("[] => []", function() {
+  		var result = beginner.removeDuplicate([]);
+	    expect(result).to.deep.equal([]);
+    });
+  	it("[1, 1, 1, 1] => [1]", function() {
+  		var result = beginner.removeDuplicate([1, 1, 1, 1]);
+	    expect(result).to.deep.equal([1]); 		
+    });
+    it("[1, 1, 1, 1, 2, 2, 2, 2] => [1, 2]", function() {
+  		var result = beginner.removeDuplicate([1, 1, 1, 1, 2, 2, 2, 2]);
+	    expect(result).to.deep.equal([1, 2]); 		
+    });
+    it("20 randomized tests", function() {
+    	for (var i = 0; i < 20; i++) {
+    		var length = Math.floor(Math.random() * 10);
+    		var checker = [];
+    		var testCase = [];
+    		for (var j = 0; j < length; j++) {
+				checker.push(j);
+				testCase.push(j);
+    		}
+
+    		for (var j = 0; j < length; j++) {
+    			var randomIndex = Math.floor(Math.random() * length);
+				testCase.push(checker[randomIndex]);
+    		}
+
+	  		var result = beginner.removeDuplicate(testCase);
+	      	expect(result).to.deep.equal(checker);
+      	}
     });
   });
 });

@@ -146,6 +146,39 @@ exports.mergeSortedArrays = function (arrayA, arrayB) {
   return result;
 }	
 
+exports.stringReverse = function (input) {
+	var result = "";
+	input = input.toString();
+  	
+  	for (var i = input.length-1; i >= 0; i--) {
+    	result += input[i];
+  	}
+  	return result;
+}
+
+exports.wordsCounter = function (input) {
+	if (typeof input != "string") {
+		return 0;
+	}
+	var tempString = input + " ";
+
+	var isSeparator = function (char) {
+		var allSeparators = " ,.:;!?¡¿&%/^*+-<>\\"; 
+		if (allSeparators.includes(char)) {
+			return true;
+		}
+		return false;
+	}
+
+	var counter = 0;
+	for (var i = 0; i < input.length; i++) {
+		if (!isSeparator(tempString[i]) && isSeparator(tempString[i+1])) {
+			counter ++;
+		}
+	}
+
+	return counter;
+}
 
 
 
@@ -154,7 +187,4 @@ exports.mergeSortedArrays = function (arrayA, arrayB) {
 
 
 
-
-
-
-
+ 

@@ -293,6 +293,104 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
       expect(result).to.deep.equal([-11, -3, -2, 13.4, 13.5]);
     });
   });
+
+
+  // test 7       -------------------------------------------------------------------
+  describe("String Reverse Algorithm", function() {
+    it("'' => ''", function() {
+      var result = beginner.stringReverse("");
+      expect(result).to.deep.equal("");
+    });
+    it("'a' => 'a'", function() {
+      var result = beginner.stringReverse("a");
+      expect(result).to.deep.equal("a");
+    });
+    it("'ab' => 'ba'", function() {
+      var result = beginner.stringReverse("ab");
+      expect(result).to.deep.equal("ba");
+    });
+    it("'1234,56789' => '98765,4321'", function() {
+      var result = beginner.stringReverse("1234,56789");
+      expect(result).to.deep.equal("98765,4321");
+    });
+    it(" 12345 (integer) => 54321 (String) ", function() {
+      var result = beginner.stringReverse(12345);
+      expect(result).to.deep.equal("54321");
+    });
+  });
+
+
+  // test 8       -------------------------------------------------------------------
+  describe("Words Counter", function() {
+    it(" numbers  => 0 ", function() {
+      var result = beginner.wordsCounter(2);
+      expect(result).to.deep.equal(0);
+    });
+    it(" array  => 0 ", function() {
+      var result = beginner.wordsCounter([1, 2, 3]);
+      expect(result).to.deep.equal(0);
+    });
+    it(" object  => 0 ", function() {
+      var result = beginner.wordsCounter({"a": "value of a", "b": "value of b"});
+      expect(result).to.deep.equal(0);
+    });
+    it(" ''  => 0 ", function() {
+      var result = beginner.wordsCounter("");
+      expect(result).to.deep.equal(0);
+    });
+    it(" ' , '  => 0 ", function() {
+      var result = beginner.wordsCounter(" , ");
+      expect(result).to.deep.equal(0);
+    });
+    it(" 'Hello'  => 1 ", function() {
+      var result = beginner.wordsCounter("Hello");
+      expect(result).to.deep.equal(1);
+    });
+    it(" '   Hello'  => 1 ", function() {
+      var result = beginner.wordsCounter("   Hello");
+      expect(result).to.deep.equal(1);
+    });
+    it(" 'Hello   '  => 1 ", function() {
+      var result = beginner.wordsCounter("Hello   ");
+      expect(result).to.deep.equal(1);
+    });
+    it(" '   Hello   '  => 1 ", function() {
+      var result = beginner.wordsCounter("   Hello   ");
+      expect(result).to.deep.equal(1);
+    });
+    it(" ' !   Hello   '  => 1 ", function() {
+      var result = beginner.wordsCounter(" !   Hello   ");
+      expect(result).to.deep.equal(1);
+    });
+    it(" '   Hello   !'  => 1 ", function() {
+      var result = beginner.wordsCounter("   Hello   !");
+      expect(result).to.deep.equal(1);
+    });
+    it(" ' !  Hello  ! '  => 1 ", function() {
+      var result = beginner.wordsCounter(" !  Hello  ! ");
+      expect(result).to.deep.equal(1);
+    });
+    it(" 'Hello, world!'  => 2 ", function() {
+      var result = beginner.wordsCounter("Hello, world!");
+      expect(result).to.deep.equal(2);
+    });
+    it(" 'Hello,world'  => 2 ", function() {
+      var result = beginner.wordsCounter("Hello,world");
+      expect(result).to.deep.equal(2);
+    });
+    it(" 'Hello world...'  => 2 ", function() {
+      var result = beginner.wordsCounter("Hello world...");
+      expect(result).to.deep.equal(2);
+    });
+    it(" 'Hello this big and wanderful world!'  => 6 ", function() {
+      var result = beginner.wordsCounter("  Hello   this big,and wanderful    world !");
+      expect(result).to.deep.equal(6);
+    });
+    it(" '  Hello   this big,and wanderful    world !'  => 6 ", function() {
+      var result = beginner.wordsCounter("  Hello   this big,and wanderful    world !");
+      expect(result).to.deep.equal(6);
+    });
+  });
 });
 
 

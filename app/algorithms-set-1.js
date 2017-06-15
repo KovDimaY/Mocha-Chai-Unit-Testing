@@ -156,7 +156,7 @@ exports.stringReverse = function (input) {
   	return result;
 }
 
-// not covered by tests (too simple for this)
+// not covered by tests (too simple for it)
 var isSeparator = function (char) {
 	var allSeparators = " ,.:;!?¡¿&%/^*+-_<>\v\f\r\n\t\\"; 
 	if (allSeparators.includes(char)) {
@@ -205,8 +205,31 @@ exports.tagsCollector = function (input) {
 	return result;
 }
 
+exports.firstNonRepeatChar = function (input) {
+	if (typeof input == "number") {
+		input = input.toString();
+	} else if (typeof input != "string") {
+		return null;
+	}
 
+	var charCount = {};
 
+	for (var i = 0; i < input.length; i++) {
+		if (charCount[input[i]]) {
+			charCount[input[i]]++;
+		} else {
+			charCount[input[i]] = 1;
+		}
+	}
+
+	for (var key in charCount) {
+		if (charCount[key]==1) {
+			return key;
+		}
+	}
+
+	return null;
+}
 
 
 

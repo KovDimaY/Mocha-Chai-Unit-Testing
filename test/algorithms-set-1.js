@@ -472,6 +472,52 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
       expect(result).to.deep.equal(['Hello', 'hello']);
     });
   });
+
+
+  // test 10       -------------------------------------------------------------------
+  describe("The First Non Repeating Char", function() {
+    it(" ''  => null ", function() {
+      var result = beginner.firstNonRepeatChar("");
+      expect(result).to.deep.equal(null);
+    });
+    it(" 'aaa'  => null ", function() {
+      var result = beginner.firstNonRepeatChar("aaa");
+      expect(result).to.deep.equal(null);
+    });
+    it(" 'aabb'  => null ", function() {
+      var result = beginner.firstNonRepeatChar("aabb");
+      expect(result).to.deep.equal(null);
+    });
+    it(" 'a'  => a ", function() {
+      var result = beginner.firstNonRepeatChar("a");
+      expect(result).to.deep.equal("a");
+    });
+    it(" 'ab'  => a ", function() {
+      var result = beginner.firstNonRepeatChar("ab");
+      expect(result).to.deep.equal("a");
+    });
+    it(" 'aabbcddee'  => c ", function() {
+      var result = beginner.firstNonRepeatChar("aabbcddee");
+      expect(result).to.deep.equal("c");
+    });
+    it(" 'abcdedcba'  => e ", function() {
+      var result = beginner.firstNonRepeatChar("abcdedcba");
+      expect(result).to.deep.equal("e");
+    });
+    it(" 'the quick brown fox jumps then quickly blow air'  => f ", function() {
+      var result = beginner.firstNonRepeatChar("the quick brown fox jumps then quickly blow air");
+      expect(result).to.deep.equal("f");
+    });
+    it(" 123321 (number)  =>  null", function() {
+      var result = beginner.firstNonRepeatChar(123321);
+      expect(result).to.deep.equal(null);
+    });
+    it(" 12321 (number)  => 3 ", function() {
+      var result = beginner.firstNonRepeatChar(12321);
+      expect(result).to.deep.equal("3");
+    });
+    
+  });
 });
 
 

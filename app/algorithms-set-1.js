@@ -110,6 +110,42 @@ exports.removeDuplicate = function (array) {
 	return result;
 }
 
+exports.mergeSortedArrays = function (arrayA, arrayB) {
+
+	if (arrayA.length == 0) {
+		return arrayB;
+	}
+	if (arrayB.length == 0) {
+		return arrayA;
+	}
+
+	var result = [];
+	var indexA = 0;
+	var indexB = 0;
+	var resultLength = arrayA.length + arrayB.length;
+
+	for (var i = 0; i < resultLength; i++) {
+		if (indexA == arrayA.length) {
+			for (; indexB < arrayB.length; indexB++) {
+				result.push(arrayB[indexB]);
+			}
+		} else if (indexB == arrayB.length) {
+			for (; indexA < arrayA.length; indexA++) {
+				result.push(arrayA[indexA]);
+			}
+		} else {
+			if (arrayA[indexA] < arrayB[indexB]) {
+				result.push(arrayA[indexA]);
+				indexA++;
+			} else {
+				result.push(arrayB[indexB]);
+				indexB++;
+			}
+		}
+	}
+  return result;
+}	
+
 
 
 

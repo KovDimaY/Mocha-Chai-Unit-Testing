@@ -230,6 +230,69 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
       	}
     });
   });
+
+
+  // test 6       -------------------------------------------------------------------
+  describe("Merge Sorted Arrays", function() {
+    it("A + B => B + A", function() {
+      for (var i = 0; i < 20; i++) {
+        var arrayA = [];
+        var arrayB = [];
+        var lengthA = Math.floor(Math.random() * 10);
+        var lengthB = Math.floor(Math.random() * 10);
+
+        for (var j = 0; j < lengthA; j++) {
+          arrayA.push(Math.random() * lengthA);
+        }
+
+        for (var j = 0; j < lengthB; j++) {
+          arrayB.push(Math.random() * lengthB);
+        }
+
+        var direct = beginner.mergeSortedArrays(arrayA, arrayB);
+        var revers = beginner.mergeSortedArrays(arrayB, arrayA);
+
+        expect(direct).to.deep.equal(revers);
+      }
+    });
+    it("A + [] => A", function() {
+      for (var i = 0; i < 20; i++) {
+        var array = [];
+        var length = Math.floor(Math.random() * 10);
+
+        for (var j = 0; j < length; j++) {
+          array.push(Math.random() * length);
+        }
+
+        var result = beginner.mergeSortedArrays(array, []);
+        expect(result).to.deep.equal(array);
+      }
+    });
+    it("[] + [] => []", function() {
+      var result = beginner.mergeSortedArrays([], []);
+      expect(result).to.deep.equal([]);
+    });
+    it("[1, 2] + [3, 4] => [1, 2, 3, 4]", function() {
+      var result = beginner.mergeSortedArrays([1, 2], [3, 4]);
+      expect(result).to.deep.equal([1, 2, 3, 4]);
+    });
+    it("[1, 3, 5] + [2, 4] => [1, 2, 3, 4, 5]", function() {
+      var result = beginner.mergeSortedArrays([1, 3, 5], [2, 4]);
+      expect(result).to.deep.equal([1, 2, 3, 4, 5]);
+    });
+    it("[1, 2, 4, 5] + [3] => [1, 2, 3, 4, 5]", function() {
+      var result = beginner.mergeSortedArrays([1, 2, 4, 5], [3]);
+      expect(result).to.deep.equal([1, 2, 3, 4, 5]);
+    });
+    it("[1, 2, 3, 4, 5] + [1, 2, 3, 4, 5] => [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]", function() {
+      var result = beginner.mergeSortedArrays([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
+      expect(result).to.deep.equal([1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+    });
+    it("[-3] + [-11, -2, 13.4, 13.5] => [-11, -3, -2, 13.4, 13.5]", function() {
+      var result = beginner.mergeSortedArrays([-3], [-11, -2, 13.4, 13.5]);
+      expect(result).to.deep.equal([-11, -3, -2, 13.4, 13.5]);
+    });
+  });
 });
 
 

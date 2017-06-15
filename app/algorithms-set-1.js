@@ -156,19 +156,20 @@ exports.stringReverse = function (input) {
   	return result;
 }
 
+// not covered by tests (too simple for this)
+var isSeparator = function (char) {
+	var allSeparators = " ,.:;!?¡¿&%/^*+-_<>\v\f\r\n\t\\"; 
+	if (allSeparators.includes(char)) {
+		return true;
+	}
+	return false;
+}
+
 exports.wordsCounter = function (input) {
 	if (typeof input != "string") {
 		return 0;
 	}
 	var tempString = input + " ";
-
-	var isSeparator = function (char) {
-		var allSeparators = " ,.:;!?¡¿&%/^*+-<>\\"; 
-		if (allSeparators.includes(char)) {
-			return true;
-		}
-		return false;
-	}
 
 	var counter = 0;
 	for (var i = 0; i < input.length; i++) {
@@ -180,7 +181,29 @@ exports.wordsCounter = function (input) {
 	return counter;
 }
 
+exports.tagsCollector = function (input) {
+	if (typeof input != "string") {
+		return [];
+	}
+	var tempString = input + " ";
+	var exists = {};
+	var result = [];
+	var wordStarted = false;
+	var currentWord = "";
 
+	for (var i = 0; i < tempString.length; i++) {
+		if (!isSeparator(tempString[i])) {
+			currentWord += tempString[i];
+		} else {
+			if (currentWord != "" && !exists[currentWord]) {
+				exists[currentWord] = true;
+				result.push(currentWord);
+			}
+			currentWord = "";
+		}
+	}
+	return result;
+}
 
 
 

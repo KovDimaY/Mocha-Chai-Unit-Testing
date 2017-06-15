@@ -390,6 +390,87 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
       var result = beginner.wordsCounter("  Hello   this big,and wanderful    world !");
       expect(result).to.deep.equal(6);
     });
+    it(" 'Цей символ з'явився в Юнікоді: \u2602'  => 6 ", function() {
+      var result = beginner.wordsCounter("Цей символ з'явився в Юнікоді: \u2602");
+      expect(result).to.deep.equal(6);
+    });
+  });
+
+
+  // test 9       -------------------------------------------------------------------
+  describe("Tags Collector", function() {
+    it(" numbers  => [] ", function() {
+      var result = beginner.tagsCollector(2);
+      expect(result).to.deep.equal([]);
+    });
+    it(" array  => [] ", function() {
+      var result = beginner.tagsCollector([1, 2, 3]);
+      expect(result).to.deep.equal([]);
+    });
+    it(" object  => [] ", function() {
+      var result = beginner.tagsCollector({"a": "value of a", "b": "value of b"});
+      expect(result).to.deep.equal([]);
+    });
+    it(" ''  => [] ", function() {
+      var result = beginner.tagsCollector("");
+      expect(result).to.deep.equal([]);
+    });
+    it(" '  ,  '  => [] ", function() {
+      var result = beginner.tagsCollector("");
+      expect(result).to.deep.equal([]);
+    });
+    it(" 'Hello'  => ['Hello'] ", function() {
+      var result = beginner.tagsCollector("Hello");
+      expect(result).to.deep.equal(["Hello"]);
+    });
+    it(" '   Hello'  => ['Hello'] ", function() {
+      var result = beginner.tagsCollector("   Hello");
+      expect(result).to.deep.equal(['Hello']);
+    });
+    it(" 'Hello   '  => ['Hello'] ", function() {
+      var result = beginner.tagsCollector("Hello   ");
+      expect(result).to.deep.equal(['Hello']);
+    });
+    it(" '   Hello   '  => ['Hello'] ", function() {
+      var result = beginner.tagsCollector("   Hello   ");
+      expect(result).to.deep.equal(['Hello']);
+    });
+    it(" ' !   Hello   '  => ['Hello'] ", function() {
+      var result = beginner.tagsCollector(" !   Hello   ");
+      expect(result).to.deep.equal(['Hello']);
+    });
+    it(" '   Hello   !'  => ['Hello'] ", function() {
+      var result = beginner.tagsCollector("   Hello   !");
+      expect(result).to.deep.equal(['Hello']);
+    });
+    it(" ' !  Hello  ! '  => ['Hello'] ", function() {
+      var result = beginner.tagsCollector(" !  Hello  ! ");
+      expect(result).to.deep.equal(['Hello']);
+    });
+    it(" 'Hello, world!'  => ['Hello', 'world'] ", function() {
+      var result = beginner.tagsCollector("Hello, world!");
+      expect(result).to.deep.equal(['Hello', 'world']);
+    });
+    it(" 'Hello,world'  => ['Hello', 'world'] ", function() {
+      var result = beginner.tagsCollector("Hello,world");
+      expect(result).to.deep.equal(['Hello', 'world']);
+    });
+    it(" 'Hello world...'  => ['Hello', 'world'] ", function() {
+      var result = beginner.tagsCollector("Hello world...");
+      expect(result).to.deep.equal(['Hello', 'world']);
+    });
+    it(" 'Hello this big and wanderful world!'  => ['Hello', 'this', 'big', 'and', 'wanderful', 'world'] ", function() {
+      var result = beginner.tagsCollector("  Hello   this big,and wanderful    world !");
+      expect(result).to.deep.equal(['Hello', 'this', 'big', 'and', 'wanderful', 'world']);
+    });
+    it(" '  Hello   this big,and wanderful    world !'  => ['Hello', 'this', 'big', 'and', 'wanderful', 'world'] ", function() {
+      var result = beginner.tagsCollector("  Hello   this big,and wanderful    world !");
+      expect(result).to.deep.equal(['Hello', 'this', 'big', 'and', 'wanderful', 'world']);
+    });
+    it(" 'Hello, hello, Hello, Hello, hello, hello, hello'  => ['Hello', 'hello'] ", function() {
+      var result = beginner.tagsCollector("Hello, hello, Hello, Hello, hello, hello, hello");
+      expect(result).to.deep.equal(['Hello', 'hello']);
+    });
   });
 });
 

@@ -88,7 +88,106 @@ describe("TESTS FOR ASYNCHRONOUS CODE OF SERVER", function() {
         done();
       });
     });
-
   });
 
+
+
+  // test 2       -------------------------------------------------------------------
+  describe("Server-side Profile Constructor", function() {
+
+    var url = "http://localhost:3000/profileConstructor";
+
+    it("Empty query should return status 200 and give an empty object", function(done) {
+      request(url, function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ error: "Name and Email is required" });
+        done();
+      });
+    });
+
+    it("Only name is provided", function(done) {
+      request(url + "?name=Dima", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ error: "Email is required" });
+        done();
+      });
+    });
+
+    it("Only email is provided", function(done) {
+      request(url + "?email=fuflina@yandex.ru", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ error: "Name is required" });
+        done();
+      });
+    });
+
+    it("Everything except name provided", function(done) {
+      request(url + "?email=fuflina@yandex.ru&surname=Kovalenko&age=24", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ error: "Name is required" });
+        done();
+      });
+    });
+
+    it("Everything except email provided", function(done) {
+      request(url + "?name=Dima&surname=Kovalenko&age=24", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ error: "Email is required" });
+        done();
+      });
+    });
+
+    it("Only name and email provided", function(done) {
+      request(url + "?name=Dima&email=fuflina@yandex.ru", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ name: "Dima", email: "fuflina@yandex.ru", filled: 50 });
+        done();
+      });
+    });
+
+    it("Incorrect Email provided", function(done) {
+      request(url + "?name=Dima&surname=Kovalenko&email=fuflin.adyandex.ru&age=24", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ error: "Email is incorrect" });
+        done();
+      });
+    });
+
+    it("Incorrect (not a number) age provided", function(done) {
+      request(url + "?name=Dima&surname=Kovalenko&email=fuflina@yandex.ru&age=2ds4", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ name: "Dima", surname: "Kovalenko", email: "fuflina@yandex.ru", filled: 75 });
+        done();
+      });
+    });
+
+    it("Negative age provided", function(done) {
+      request(url + "?name=Dima&surname=Kovalenko&email=fuflina@yandex.ru&age=-24", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ name: "Dima", surname: "Kovalenko", email: "fuflina@yandex.ru", filled: 75 });
+        done();
+      });
+    });
+
+    it("All the data provided correctly", function(done) {
+      request(url + "?name=Dima&surname=Kovalenko&email=fuflina@yandex.ru&age=24", function(error, response, body) {
+        expect(response.statusCode).to.equal(200);
+        expect(JSON.parse(body)).to.deep.equal({ name: "Dima", surname: "Kovalenko", age: 24, email: "fuflina@yandex.ru", filled: 100 });
+        done();
+      });
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+  });
 });

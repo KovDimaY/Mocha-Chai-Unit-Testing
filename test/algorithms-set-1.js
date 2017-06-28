@@ -114,7 +114,7 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
     it("Element number -3", function() {
   		var result = beginner.fibonacci(-3);
       	expect(result).to.equal(null);
-    });    
+    });
   });
 
 
@@ -127,7 +127,7 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
   			var direct = beginner.greatestCommonDivisor(number1, number2);
 			var revers = beginner.greatestCommonDivisor(number2, number1);
       		expect(direct).to.equal(revers);
-  		}  		
+  		}
     });
     it("GCD(a, a) = a", function() {
     	for (var i = 0; i < 20; i++) {
@@ -204,11 +204,11 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
     });
   	it("[1, 1, 1, 1] => [1]", function() {
   		var result = beginner.removeDuplicate([1, 1, 1, 1]);
-	    expect(result).to.deep.equal([1]); 		
+	    expect(result).to.deep.equal([1]);
     });
     it("[1, 1, 1, 1, 2, 2, 2, 2] => [1, 2]", function() {
   		var result = beginner.removeDuplicate([1, 1, 1, 1, 2, 2, 2, 2]);
-	    expect(result).to.deep.equal([1, 2]); 		
+	    expect(result).to.deep.equal([1, 2]);
     });
     it("20 randomized tests", function() {
     	for (var i = 0; i < 20; i++) {
@@ -516,34 +516,6 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", function() {
       var result = beginner.firstNonRepeatChar(12321);
       expect(result).to.deep.equal("3");
     });
-    
   });
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

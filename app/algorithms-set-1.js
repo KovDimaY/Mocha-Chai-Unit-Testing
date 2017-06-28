@@ -15,7 +15,7 @@ exports.isPrime = function (number) {
 
   	while (divisor < Math.sqrt(number)) {
     	if (number % divisor == 0) {
-     		return false; 
+     		return false;
     	} else {
     		divisor += 2;
     	}
@@ -29,7 +29,7 @@ exports.primeFactors = function (number) {
 		return [-1];
 	}
 
-	var factors = []; 
+	var factors = [];
     var divisor = 2;
 
 	if (Number.isInteger(number)) {
@@ -38,11 +38,11 @@ exports.primeFactors = function (number) {
 		}
 		while (number>1) {
     		if (number % divisor == 0) {
-	       		factors.push(divisor); 
+	       		factors.push(divisor);
 	       		number = number/ divisor;
-    		} else { 
+    		} else {
       			divisor++;
-    		}     
+    		}
   		}
 	}
 	return factors;
@@ -144,12 +144,12 @@ exports.mergeSortedArrays = function (arrayA, arrayB) {
 		}
 	}
   return result;
-}	
+}
 
 exports.stringReverse = function (input) {
 	var result = "";
 	input = input.toString();
-  	
+
   	for (var i = input.length-1; i >= 0; i--) {
     	result += input[i];
   	}
@@ -158,7 +158,7 @@ exports.stringReverse = function (input) {
 
 // not covered by tests (too simple for it)
 var isSeparator = function (char) {
-	var allSeparators = " ,.:;!?¡¿&%/^*+-_<>\v\f\r\n\t\\"; 
+	var allSeparators = " ,.:;!?¡¿&%/^*+-_<>\v\f\r\n\t\\";
 	if (allSeparators.includes(char)) {
 		return true;
 	}
@@ -230,7 +230,3 @@ exports.firstNonRepeatChar = function (input) {
 
 	return null;
 }
-
-
-
- 

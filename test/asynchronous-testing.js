@@ -1,5 +1,6 @@
 var expect = require("chai").expect;
 var request = require("request");
+var server = require("../app/server");
 
 
 describe("TESTS FOR ASYNCHRONOUS CODE OF SERVER", function() {
@@ -176,18 +177,5 @@ describe("TESTS FOR ASYNCHRONOUS CODE OF SERVER", function() {
         done();
       });
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
   });
 });

@@ -354,35 +354,53 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 5       -------------------------------------------------------------------
   describe("Removing Duplicates", () => {
   	it("[] => []", () => {
-  		var result = beginner.removeDuplicate([]);
-	    expect(result).to.deep.equal([]);
+      // Setup
+      const input = [];
+      const expected = [];
+      // Exercise
+  		const result = beginner.removeDuplicate(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
   	it("[1, 1, 1, 1] => [1]", () => {
-  		var result = beginner.removeDuplicate([1, 1, 1, 1]);
-	    expect(result).to.deep.equal([1]);
+      // Setup
+      const input = [1, 1, 1, 1];
+      const expected = [1];
+      // Exercise
+  		const result = beginner.removeDuplicate(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("[1, 1, 1, 1, 2, 2, 2, 2] => [1, 2]", () => {
-  		var result = beginner.removeDuplicate([1, 1, 1, 1, 2, 2, 2, 2]);
-	    expect(result).to.deep.equal([1, 2]);
+      // Setup
+      const input = [1, 1, 1, 1, 2, 2, 2, 2];
+      const expected = [1, 2];
+      // Exercise
+  		const result = beginner.removeDuplicate(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("20 randomized tests", () => {
-    	for (var i = 0; i < 20; i++) {
-    		var length = Math.floor(Math.random() * 10);
-    		var checker = [];
-    		var testCase = [];
-    		for (var j = 0; j < length; j++) {
-				checker.push(j);
-				testCase.push(j);
+    	for (let i = 0; i < 20; i++) {
+        // Setup
+    		const length = Math.floor(Math.random() * 10);
+    		const checker = [];
+    		const testCase = [];
+        // Creates two arrays with unique elements
+    		for (let j = 0; j < length; j++) {
+				  checker.push(j);
+				  testCase.push(j);
     		}
-
-    		for (var j = 0; j < length; j++) {
-    			var randomIndex = Math.floor(Math.random() * length);
-				testCase.push(checker[randomIndex]);
+        // Adds to one of arrays several duplicates
+    		for (let j = 0; j < length; j++) {
+    			const randomIndex = Math.floor(Math.random() * length);
+				  testCase.push(checker[randomIndex]);
     		}
-
-	  		var result = beginner.removeDuplicate(testCase);
-	      	expect(result).to.deep.equal(checker);
-      	}
+        // Ecercise
+	  		const result = beginner.removeDuplicate(testCase);
+        // Verify
+	      expect(result).to.deep.equal(checker);
+      }
     });
   });
 
@@ -390,62 +408,99 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 6       -------------------------------------------------------------------
   describe("Merge Sorted Arrays", () => {
     it("A + B => B + A", () => {
-      for (var i = 0; i < 20; i++) {
-        var arrayA = [];
-        var arrayB = [];
-        var lengthA = Math.floor(Math.random() * 10);
-        var lengthB = Math.floor(Math.random() * 10);
-
-        for (var j = 0; j < lengthA; j++) {
+      for (let i = 0; i < 20; i++) {
+        const arrayA = [];
+        const arrayB = [];
+        const lengthA = Math.floor(Math.random() * 10);
+        const lengthB = Math.floor(Math.random() * 10);
+        // Creates a random array
+        for (let j = 0; j < lengthA; j++) {
           arrayA.push(Math.random() * lengthA);
         }
-
-        for (var j = 0; j < lengthB; j++) {
+        // Creates a random array
+        for (let j = 0; j < lengthB; j++) {
           arrayB.push(Math.random() * lengthB);
         }
-
-        var direct = beginner.mergeSortedArrays(arrayA, arrayB);
-        var revers = beginner.mergeSortedArrays(arrayB, arrayA);
-
+        // Exercise
+        const direct = beginner.mergeSortedArrays(arrayA, arrayB);
+        const revers = beginner.mergeSortedArrays(arrayB, arrayA);
+        // Verify
         expect(direct).to.deep.equal(revers);
       }
     });
     it("A + [] => A", () => {
-      for (var i = 0; i < 20; i++) {
-        var array = [];
-        var length = Math.floor(Math.random() * 10);
-
-        for (var j = 0; j < length; j++) {
+      for (let i = 0; i < 20; i++) {
+        const array = [];
+        const length = Math.floor(Math.random() * 10);
+        // Creates a random array
+        for (let j = 0; j < length; j++) {
           array.push(Math.random() * length);
         }
-
-        var result = beginner.mergeSortedArrays(array, []);
+        // Exercise
+        const result = beginner.mergeSortedArrays(array, []);
+        // Verify
         expect(result).to.deep.equal(array);
       }
     });
     it("[] + [] => []", () => {
-      var result = beginner.mergeSortedArrays([], []);
-      expect(result).to.deep.equal([]);
+      // Setup
+      const input1 = [];
+      const input2 = [];
+      const expected = [];
+      // Exercise
+  		const result = beginner.mergeSortedArrays(input1, input2);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("[1, 2] + [3, 4] => [1, 2, 3, 4]", () => {
-      var result = beginner.mergeSortedArrays([1, 2], [3, 4]);
-      expect(result).to.deep.equal([1, 2, 3, 4]);
+      // Setup
+      const input1 = [1, 2];
+      const input2 = [3, 4];
+      const expected = [1, 2, 3, 4];
+      // Exercise
+  		const result = beginner.mergeSortedArrays(input1, input2);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("[1, 3, 5] + [2, 4] => [1, 2, 3, 4, 5]", () => {
-      var result = beginner.mergeSortedArrays([1, 3, 5], [2, 4]);
-      expect(result).to.deep.equal([1, 2, 3, 4, 5]);
+      // Setup
+      const input1 = [1, 3, 5];
+      const input2 = [2, 4];
+      const expected = [1, 2, 3, 4, 5];
+      // Exercise
+  		const result = beginner.mergeSortedArrays(input1, input2);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("[1, 2, 4, 5] + [3] => [1, 2, 3, 4, 5]", () => {
-      var result = beginner.mergeSortedArrays([1, 2, 4, 5], [3]);
-      expect(result).to.deep.equal([1, 2, 3, 4, 5]);
+      // Setup
+      const input1 = [1, 2, 4, 5];
+      const input2 = [3];
+      const expected = [1, 2, 3, 4, 5];
+      // Exercise
+  		const result = beginner.mergeSortedArrays(input1, input2);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("[1, 2, 3, 4, 5] + [1, 2, 3, 4, 5] => [1, 1, 2, 2, 3, 3, 4, 4, 5, 5]", () => {
-      var result = beginner.mergeSortedArrays([1, 2, 3, 4, 5], [1, 2, 3, 4, 5]);
-      expect(result).to.deep.equal([1, 1, 2, 2, 3, 3, 4, 4, 5, 5]);
+      // Setup
+      const input1 = [1, 2, 3, 4, 5];
+      const input2 = [1, 2, 3, 4, 5];
+      const expected = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5];
+      // Exercise
+  		const result = beginner.mergeSortedArrays(input1, input2);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("[-3] + [-11, -2, 13.4, 13.5] => [-11, -3, -2, 13.4, 13.5]", () => {
-      var result = beginner.mergeSortedArrays([-3], [-11, -2, 13.4, 13.5]);
-      expect(result).to.deep.equal([-11, -3, -2, 13.4, 13.5]);
+      // Setup
+      const input1 = [-3];
+      const input2 = [-11, -2, 13.4, 13.5];
+      const expected = [-11, -3, -2, 13.4, 13.5];
+      // Exercise
+  		const result = beginner.mergeSortedArrays(input1, input2);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
   });
 

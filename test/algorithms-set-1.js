@@ -508,24 +508,49 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 7       -------------------------------------------------------------------
   describe("String Reverse Algorithm", () => {
     it("'' => ''", () => {
-      var result = beginner.stringReverse("");
-      expect(result).to.deep.equal("");
+      // Setup
+      const input = "";
+      const expected = "";
+      // Exercise
+  		const result = beginner.stringReverse(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("'a' => 'a'", () => {
-      var result = beginner.stringReverse("a");
-      expect(result).to.deep.equal("a");
+      // Setup
+      const input = "a";
+      const expected = "a";
+      // Exercise
+  		const result = beginner.stringReverse(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("'ab' => 'ba'", () => {
-      var result = beginner.stringReverse("ab");
-      expect(result).to.deep.equal("ba");
+      // Setup
+      const input = "ab";
+      const expected = "ba";
+      // Exercise
+  		const result = beginner.stringReverse(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it("'1234,56789' => '98765,4321'", () => {
-      var result = beginner.stringReverse("1234,56789");
-      expect(result).to.deep.equal("98765,4321");
+      // Setup
+      const input = "1234,56789";
+      const expected = "98765,4321";
+      // Exercise
+  		const result = beginner.stringReverse(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 12345 (integer) => 54321 (String) ", () => {
-      var result = beginner.stringReverse(12345);
-      expect(result).to.deep.equal("54321");
+      // Setup
+      const input = 12345;
+      const expected = "54321";
+      // Exercise
+  		const result = beginner.stringReverse(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
   });
 
@@ -533,76 +558,166 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 8       -------------------------------------------------------------------
   describe("Words Counter", () => {
     it(" numbers  => 0 ", () => {
-      var result = beginner.wordsCounter(2);
-      expect(result).to.deep.equal(0);
+      // Setup
+      const input = 2;
+      const expected = 0;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" array  => 0 ", () => {
-      var result = beginner.wordsCounter([1, 2, 3]);
-      expect(result).to.deep.equal(0);
+      // Setup
+      const input = [1, 2, 3];
+      const expected = 0;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" object  => 0 ", () => {
-      var result = beginner.wordsCounter({"a": "value of a", "b": "value of b"});
-      expect(result).to.deep.equal(0);
+      // Setup
+      const input = {"a": "value of a", "b": "value of b"};
+      const expected = 0;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" ''  => 0 ", () => {
-      var result = beginner.wordsCounter("");
-      expect(result).to.deep.equal(0);
+      // Setup
+      const input = "";
+      const expected = 0;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" ' , '  => 0 ", () => {
-      var result = beginner.wordsCounter(" , ");
-      expect(result).to.deep.equal(0);
+      // Setup
+      const input = " , ";
+      const expected = 0;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" 'Hello'  => 1 ", () => {
-      var result = beginner.wordsCounter("Hello");
-      expect(result).to.deep.equal(1);
+      // Setup
+      const input = "Hello";
+      const expected = 1;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" '   Hello'  => 1 ", () => {
-      var result = beginner.wordsCounter("   Hello");
-      expect(result).to.deep.equal(1);
+      // Setup
+      const input = "   Hello";
+      const expected = 1;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" 'Hello   '  => 1 ", () => {
-      var result = beginner.wordsCounter("Hello   ");
-      expect(result).to.deep.equal(1);
+      // Setup
+      const input = "Hello   ";
+      const expected = 1;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" '   Hello   '  => 1 ", () => {
-      var result = beginner.wordsCounter("   Hello   ");
-      expect(result).to.deep.equal(1);
+      // Setup
+      const input = "   Hello   ";
+      const expected = 1;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" ' !   Hello   '  => 1 ", () => {
-      var result = beginner.wordsCounter(" !   Hello   ");
-      expect(result).to.deep.equal(1);
+      // Setup
+      const input = " !   Hello   ";
+      const expected = 1;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" '   Hello   !'  => 1 ", () => {
-      var result = beginner.wordsCounter("   Hello   !");
-      expect(result).to.deep.equal(1);
+      // Setup
+      const input = "   Hello   !";
+      const expected = 1;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" ' !  Hello  ! '  => 1 ", () => {
-      var result = beginner.wordsCounter(" !  Hello  ! ");
-      expect(result).to.deep.equal(1);
+      // Setup
+      const input = " !  Hello  ! ";
+      const expected = 1;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" 'Hello, world!'  => 2 ", () => {
-      var result = beginner.wordsCounter("Hello, world!");
-      expect(result).to.deep.equal(2);
+      // Setup
+      const input = "Hello, world!";
+      const expected = 2;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" 'Hello,world'  => 2 ", () => {
-      var result = beginner.wordsCounter("Hello,world");
-      expect(result).to.deep.equal(2);
+      // Setup
+      const input = "Hello,world";
+      const expected = 2;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" 'Hello world...'  => 2 ", () => {
-      var result = beginner.wordsCounter("Hello world...");
-      expect(result).to.deep.equal(2);
+      // Setup
+      const input = "Hello world...";
+      const expected = 2;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" 'Hello this big and wanderful world!'  => 6 ", () => {
-      var result = beginner.wordsCounter("  Hello   this big,and wanderful    world !");
-      expect(result).to.deep.equal(6);
+      // Setup
+      const input = "Hello this big and wanderful world!";
+      const expected = 6;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" '  Hello   this big,and wanderful    world !'  => 6 ", () => {
-      var result = beginner.wordsCounter("  Hello   this big,and wanderful    world !");
-      expect(result).to.deep.equal(6);
+      // Setup
+      const input = "  Hello   this big,and wanderful    world !";
+      const expected = 6;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it(" 'Цей символ з'явився в Юнікоді: \u2602'  => 6 ", () => {
-      var result = beginner.wordsCounter("Цей символ з'явився в Юнікоді: \u2602");
-      expect(result).to.deep.equal(6);
+      // Setup
+      const input = "Цей символ з'явився в Юнікоді: \u2602";
+      const expected = 6;
+      // Exercise
+  		const result = beginner.wordsCounter(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
   });
 

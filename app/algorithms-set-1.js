@@ -3,7 +3,7 @@ exports.isPrime = (number) => {
 	if (number < 2) return false;
 	if (number == 2) return true;
 
-	var divisor = 3;
+	let divisor = 3;
 	while (divisor < Math.sqrt(number)) {
   	if (number % divisor == 0) {
    		return false;
@@ -17,8 +17,8 @@ exports.isPrime = (number) => {
 exports.primeFactors = (number) => {
 	if (number == 0) return [-1];
 
-	var factors = [];
-  var divisor = 2;
+	let factors = [];
+  let divisor = 2;
 	if (Number.isInteger(number)) {
 		if (number < 0) number *= -1;
 		
@@ -39,9 +39,9 @@ exports.fibonacci = (number) => {
 	if (number == 0) return 0;
 	if (number <= 2) return 1;
 
-	var lastElements = [0, 1];
-	var result = 0;
-	for (var i = 0; i < number - 1; i++) {
+	let lastElements = [0, 1];
+	let result = 0;
+	for (let i = 0; i < number - 1; i++) {
  		result = lastElements[0] + lastElements[1];
  		lastElements[0] = lastElements[1];
  		lastElements[1] = result;
@@ -66,11 +66,11 @@ exports.greatestCommonDivisor = (a, b) => {
 }
 
 exports.removeDuplicate = (array) => {
-	var exists = {};
-	var result = [];
-	var element = null;
+	let exists = {};
+	let result = [];
+	let element = null;
 
-	for (var i = 0; i < array.length; i++) {
+	for (let i = 0; i < array.length; i++) {
 		element = array[i];
 		if (!exists[element]) {
 	  		result.push(element);
@@ -84,12 +84,12 @@ exports.mergeSortedArrays = (arrayA, arrayB) => {
 	if (arrayA.length == 0) return arrayB;
 	if (arrayB.length == 0) return arrayA;
 
-	var result = [];
-	var indexA = 0;
-	var indexB = 0;
-	var resultLength = arrayA.length + arrayB.length;
+	let result = [];
+	let indexA = 0;
+	let indexB = 0;
+	let resultLength = arrayA.length + arrayB.length;
 
-	for (var i = 0; i < resultLength; i++) {
+	for (let i = 0; i < resultLength; i++) {
 		if (indexA == arrayA.length) {
 			for (; indexB < arrayB.length; indexB++) {
 				result.push(arrayB[indexB]);
@@ -112,18 +112,18 @@ exports.mergeSortedArrays = (arrayA, arrayB) => {
 }
 
 exports.stringReverse = (input) => {
-	var result = "";
+	let result = "";
 	input = input.toString();
 
-	for (var i = input.length-1; i >= 0; i--) {
+	for (let i = input.length-1; i >= 0; i--) {
   	result += input[i];
 	}
 	return result;
 }
 
 // not covered by tests (too simple for it)
-var isSeparator = (char) => {
-	var allSeparators = " ,.:;!?¡¿&%/^*+-_<>\v\f\r\n\t\\";
+const isSeparator = (char) => {
+	let allSeparators = " ,.:;!?¡¿&%/^*+-_<>\v\f\r\n\t\\";
 	if (allSeparators.includes(char)) {
 		return true;
 	}
@@ -132,10 +132,10 @@ var isSeparator = (char) => {
 
 exports.wordsCounter = (input) => {
 	if (typeof input != "string") return 0;
-	var tempString = input + " ";
+	let tempString = input + " ";
 
-	var counter = 0;
-	for (var i = 0; i < input.length; i++) {
+	let counter = 0;
+	for (let i = 0; i < input.length; i++) {
 		if (!isSeparator(tempString[i]) && isSeparator(tempString[i+1])) {
 			counter ++;
 		}
@@ -146,13 +146,13 @@ exports.wordsCounter = (input) => {
 exports.tagsCollector = (input) => {
 	if (typeof input != "string") return [];
 	
-	var tempString = input + " ";
-	var exists = {};
-	var result = [];
-	var wordStarted = false;
-	var currentWord = "";
+	let tempString = input + " ";
+	let exists = {};
+	let result = [];
+	let wordStarted = false;
+	let currentWord = "";
 
-	for (var i = 0; i < tempString.length; i++) {
+	for (let i = 0; i < tempString.length; i++) {
 		if (!isSeparator(tempString[i])) {
 			currentWord += tempString[i];
 		} else {
@@ -173,9 +173,9 @@ exports.firstNonRepeatChar = (input) => {
 		return null;
 	}
 
-	var charCount = {};
+	let charCount = {};
 
-	for (var i = 0; i < input.length; i++) {
+	for (let i = 0; i < input.length; i++) {
 		if (charCount[input[i]]) {
 			charCount[input[i]]++;
 		} else {
@@ -183,7 +183,7 @@ exports.firstNonRepeatChar = (input) => {
 		}
 	}
 
-	for (var key in charCount) {
+	for (let key in charCount) {
 		if (charCount[key]==1) {
 			return key;
 		}

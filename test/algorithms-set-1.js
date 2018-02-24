@@ -160,40 +160,85 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 3       -------------------------------------------------------------------
   describe("Fibonacci Series", () => {
   	it("Element number 0", () => {
-  		var result = beginner.fibonacci(0);
-      	expect(result).to.equal(0);
+      // Setup
+      const input = 0;
+      const expected = 0;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number 1", () => {
-  		var result = beginner.fibonacci(1);
-      	expect(result).to.equal(1);
+      // Setup
+      const input = 1;
+      const expected = 1;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number 2", () => {
-  		var result = beginner.fibonacci(2);
-      	expect(result).to.equal(1);
+      // Setup
+      const input = 2;
+      const expected = 1;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number 3", () => {
-  		var result = beginner.fibonacci(3);
-      	expect(result).to.equal(2);
+      // Setup
+      const input = 3;
+      const expected = 2;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number 7", () => {
-  		var result = beginner.fibonacci(7);
-      	expect(result).to.equal(13);
+      // Setup
+      const input = 7;
+      const expected = 13;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number 20", () => {
-  		var result = beginner.fibonacci(20);
-      	expect(result).to.equal(6765);
+      // Setup
+      const input = 20;
+      const expected = 6765;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number 50.0", () => {
-  		var result = beginner.fibonacci(50.0);
-      	expect(result).to.equal(12586269025);
+      // Setup
+      const input = 50.0;
+      const expected = 12586269025;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number 10.5", () => {
-  		var result = beginner.fibonacci(10.5);
-      	expect(result).to.equal(null);
+      // Setup
+      const input = 10.5;
+      const expected = null;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("Element number -3", () => {
-  		var result = beginner.fibonacci(-3);
-      	expect(result).to.equal(null);
+      // Setup
+      const input = -3;
+      const expected = null;
+      // Exercise
+  		const result = beginner.fibonacci(input);
+      // Verify
+      expect(result).to.equal(expected);
     });
   });
 
@@ -201,77 +246,107 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 4       -------------------------------------------------------------------
   describe("The Greates Common Divisor", () => {
   	it("GCD(a, b) = GCD(b, a)", () => {
-  		for (var i = 0; i < 20; i++) {
-  			var number1 = Math.floor(Math.random() * 1000);
-  			var number2 = Math.floor(Math.random() * 1000);
-  			var direct = beginner.greatestCommonDivisor(number1, number2);
-			var revers = beginner.greatestCommonDivisor(number2, number1);
-      		expect(direct).to.equal(revers);
+  		for (let i = 0; i < 20; i++) {
+  			const number1 = Math.floor(Math.random() * 1000);
+  			const number2 = Math.floor(Math.random() * 1000);
+  			const direct = beginner.greatestCommonDivisor(number1, number2);
+			  const revers = beginner.greatestCommonDivisor(number2, number1);
+      	expect(direct).to.equal(revers);
   		}
     });
     it("GCD(a, a) = a", () => {
-    	for (var i = 0; i < 20; i++) {
-    		var number = Math.floor(Math.random() * 1000);
-	  		var result = beginner.greatestCommonDivisor(number, number);
-	      	expect(result).to.equal(number);
-      	}
+    	for (let i = 0; i < 20; i++) {
+    		const number = Math.floor(Math.random() * 1000);
+	  		const result = beginner.greatestCommonDivisor(number, number);
+	      expect(result).to.equal(number);
+      }
     });
     it("GCD(a, 0) = a", () => {
-    	for (var i = 0; i < 20; i++) {
-    		var number = Math.floor(Math.random() * 1000);
-	  		var result = beginner.greatestCommonDivisor(number, 0);
-	      	expect(result).to.equal(number);
-      	}
+    	for (let i = 0; i < 20; i++) {
+    		const number = Math.floor(Math.random() * 1000);
+	  		const result = beginner.greatestCommonDivisor(number, 0);
+	      expect(result).to.equal(number);
+      }
     });
     it("GCD(a, 1) = 1", () => {
-    	for (var i = 0; i < 20; i++) {
-    		var number = Math.floor(Math.random() * 1000);
-	  		var result = beginner.greatestCommonDivisor(number, 1);
-	      	expect(result).to.equal(1);
-      	}
+    	for (let i = 0; i < 20; i++) {
+    		const number = Math.floor(Math.random() * 1000);
+	  		const result = beginner.greatestCommonDivisor(number, 1);
+	      expect(result).to.equal(1);
+      }
     });
     it("GCD(n, n+1) = 1", () => {
-    	for (var i = 0; i < 20; i++) {
-    		var number = Math.floor(Math.random() * 1000);
-	  		var result = beginner.greatestCommonDivisor(number, number + 1);
-	      	expect(result).to.equal(1);
-      	}
+    	for (let i = 0; i < 20; i++) {
+    		const number = Math.floor(Math.random() * 1000);
+	  		const result = beginner.greatestCommonDivisor(number, number + 1);
+	      expect(result).to.equal(1);
+      }
     });
     it("GCD(not integer, not integer) = null", () => {
-    	for (var i = 0; i < 20; i++) {
-    		var number1 = Math.random() * 1000;
-    		var number2 = Math.random() * 1000;
-	  		var result = beginner.greatestCommonDivisor(number1, number2);
-	      	expect(result).to.equal(null);
-      	}
+    	for (let i = 0; i < 20; i++) {
+    		const number1 = Math.random() * 1000;
+    		const number2 = Math.random() * 1000;
+	  		const result = beginner.greatestCommonDivisor(number1, number2);
+	      expect(result).to.equal(null);
+      }
     });
     it("GCD(not integer, integer) = null", () => {
-    	for (var i = 0; i < 20; i++) {
-    		var number1 = Math.random() * 1000;
-    		var number2 = Math.floor(Math.random() * 1000);
-	  		var result = beginner.greatestCommonDivisor(number1, number2);
-	      	expect(result).to.equal(null);
-      	}
+    	for (let i = 0; i < 20; i++) {
+    		const number1 = Math.random() * 1000;
+    		const number2 = Math.floor(Math.random() * 1000);
+	  		const result = beginner.greatestCommonDivisor(number1, number2);
+	      expect(result).to.equal(null);
+      }
     });
     it("GCD(12, 30) = 6", () => {
-  		var result = beginner.greatestCommonDivisor(12, 30);
-	    expect(result).to.equal(6);
+      // Setup
+      const input1 = 12;
+      const input2 = 30;
+      const expected = 6;
+      // Exercise
+  		const result = beginner.greatestCommonDivisor(input1, input2);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("GCD(-84, 184) = 4", () => {
-  		var result = beginner.greatestCommonDivisor(-84, 184);
-	    expect(result).to.equal(4);
+      // Setup
+      const input1 = -84;
+      const input2 = 184;
+      const expected = 4;
+      // Exercise
+  		const result = beginner.greatestCommonDivisor(input1, input2);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("GCD(4553, 8164) = 157", () => {
-  		var result = beginner.greatestCommonDivisor(4553, 8164);
-	    expect(result).to.equal(157);
+      // Setup
+      const input1 = 4553;
+      const input2 = 8164;
+      const expected = 157;
+      // Exercise
+  		const result = beginner.greatestCommonDivisor(input1, input2);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("GCD(-1000, -20) = 20", () => {
-  		var result = beginner.greatestCommonDivisor(-1000, -20);
-	    expect(result).to.equal(20);
+      // Setup
+      const input1 = -1000;
+      const input2 = -20;
+      const expected = 20;
+      // Exercise
+  		const result = beginner.greatestCommonDivisor(input1, input2);
+      // Verify
+      expect(result).to.equal(expected);
     });
     it("GCD(223, 331) = 1", () => {
-  		var result = beginner.greatestCommonDivisor(223, 331);
-	    expect(result).to.equal(1);
+      // Setup
+      const input1 = 223;
+      const input2 = 331;
+      const expected = 1;
+      // Exercise
+  		const result = beginner.greatestCommonDivisor(input1, input2);
+      // Verify
+      expect(result).to.equal(expected);
     });
   });
 

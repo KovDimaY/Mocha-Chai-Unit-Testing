@@ -1,41 +1,27 @@
-exports.isPrime = function (number) {
-	if (number < 2) {
-		return false;
-	}
+exports.isPrime = (number) => {
+	if (!Number.isInteger(number)) return false;
+	if (number < 2) return false;
+	if (number == 2) return true;
 
-	if (!Number.isInteger(number)) {
-		return false;
-	}
-
-	if (number == 2) {
-		return true;
-	}
-
-  	var divisor = 3;
-
-  	while (divisor < Math.sqrt(number)) {
-    	if (number % divisor == 0) {
-     		return false;
-    	} else {
-    		divisor += 2;
-    	}
+	var divisor = 3;
+	while (divisor < Math.sqrt(number)) {
+  	if (number % divisor == 0) {
+   		return false;
+  	} else {
+  		divisor += 2;
   	}
-  	return true;
+	}
+	return true;
 }
 
-exports.primeFactors = function (number) {
-
-	if (number == 0) {
-		return [-1];
-	}
+exports.primeFactors = (number) => {
+	if (number == 0) return [-1];
 
 	var factors = [];
-    var divisor = 2;
-
+  var divisor = 2;
 	if (Number.isInteger(number)) {
-		if (number < 0) {
-			number *= -1;
-		}
+		if (number < 0) number *= -1;
+		
 		while (number>1) {
     		if (number % divisor == 0) {
 	       		factors.push(divisor);
@@ -48,54 +34,38 @@ exports.primeFactors = function (number) {
 	return factors;
 }
 
-exports.fibonacci = function (number) {
-
-	if (!Number.isInteger(number) || number < 0) {
-		return null;
-	}
-
-	if (number == 0) {
-		return 0;
-	}
-
-	if (number <= 2) {
-		return 1;
-	}
+exports.fibonacci = (number) => {
+	if (!Number.isInteger(number) || number < 0) return null;
+	if (number == 0) return 0;
+	if (number <= 2) return 1;
 
 	var lastElements = [0, 1];
 	var result = 0;
-
-  	for (var i = 0; i < number - 1; i++) {
-   		result = lastElements[0] + lastElements[1];
-   		lastElements[0] = lastElements[1];
-   		lastElements[1] = result;
-  	}
-
+	for (var i = 0; i < number - 1; i++) {
+ 		result = lastElements[0] + lastElements[1];
+ 		lastElements[0] = lastElements[1];
+ 		lastElements[1] = result;
+	}
  	return result;
 }
 
-exports.greatestCommonDivisor = function (a, b) {
-
+exports.greatestCommonDivisor = (a, b) => {
 	if (!Number.isInteger(a) || !Number.isInteger(b)) {
 		return null;
 	}
 
-	if (a < 0) {
-		a *= -1;
-	}
-	if (b < 0) {
-		b *= -1;
-	}
-
+	if (a < 0) a *= -1;
+	if (b < 0) b *= -1;
+	
 	// Euclidean algorithm
 	if (b == 0) {
-    	return a;
-   	} else {
-    	return exports.greatestCommonDivisor(b, a%b);
-   	}
+  	return a;
+ 	} else {
+  	return exports.greatestCommonDivisor(b, a % b);
+ 	}
 }
 
-exports.removeDuplicate = function (array) {
+exports.removeDuplicate = (array) => {
 	var exists = {};
 	var result = [];
 	var element = null;
@@ -110,14 +80,9 @@ exports.removeDuplicate = function (array) {
 	return result;
 }
 
-exports.mergeSortedArrays = function (arrayA, arrayB) {
-
-	if (arrayA.length == 0) {
-		return arrayB;
-	}
-	if (arrayB.length == 0) {
-		return arrayA;
-	}
+exports.mergeSortedArrays = (arrayA, arrayB) => {
+	if (arrayA.length == 0) return arrayB;
+	if (arrayB.length == 0) return arrayA;
 
 	var result = [];
 	var indexA = 0;
@@ -146,18 +111,18 @@ exports.mergeSortedArrays = function (arrayA, arrayB) {
   return result;
 }
 
-exports.stringReverse = function (input) {
+exports.stringReverse = (input) => {
 	var result = "";
 	input = input.toString();
 
-  	for (var i = input.length-1; i >= 0; i--) {
-    	result += input[i];
-  	}
-  	return result;
+	for (var i = input.length-1; i >= 0; i--) {
+  	result += input[i];
+	}
+	return result;
 }
 
 // not covered by tests (too simple for it)
-var isSeparator = function (char) {
+var isSeparator = (char) => {
 	var allSeparators = " ,.:;!?¡¿&%/^*+-_<>\v\f\r\n\t\\";
 	if (allSeparators.includes(char)) {
 		return true;
@@ -165,10 +130,8 @@ var isSeparator = function (char) {
 	return false;
 }
 
-exports.wordsCounter = function (input) {
-	if (typeof input != "string") {
-		return 0;
-	}
+exports.wordsCounter = (input) => {
+	if (typeof input != "string") return 0;
 	var tempString = input + " ";
 
 	var counter = 0;
@@ -177,14 +140,12 @@ exports.wordsCounter = function (input) {
 			counter ++;
 		}
 	}
-
 	return counter;
 }
 
-exports.tagsCollector = function (input) {
-	if (typeof input != "string") {
-		return [];
-	}
+exports.tagsCollector = (input) => {
+	if (typeof input != "string") return [];
+	
 	var tempString = input + " ";
 	var exists = {};
 	var result = [];
@@ -205,7 +166,7 @@ exports.tagsCollector = function (input) {
 	return result;
 }
 
-exports.firstNonRepeatChar = function (input) {
+exports.firstNonRepeatChar = (input) => {
 	if (typeof input == "number") {
 		input = input.toString();
 	} else if (typeof input != "string") {
@@ -227,6 +188,5 @@ exports.firstNonRepeatChar = function (input) {
 			return key;
 		}
 	}
-
 	return null;
 }

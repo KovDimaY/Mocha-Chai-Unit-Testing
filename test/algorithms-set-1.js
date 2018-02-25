@@ -892,44 +892,94 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 10       -------------------------------------------------------------------
   describe("The First Non Repeating Char", () => {
     it(" ''  => null ", () => {
-      var result = beginner.firstNonRepeatChar("");
-      expect(result).to.deep.equal(null);
+      // Setup
+      const input = "";
+      const expected = null;
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'aaa'  => null ", () => {
-      var result = beginner.firstNonRepeatChar("aaa");
-      expect(result).to.deep.equal(null);
+      // Setup
+      const input = "aaa";
+      const expected = null;
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'aabb'  => null ", () => {
-      var result = beginner.firstNonRepeatChar("aabb");
-      expect(result).to.deep.equal(null);
+      // Setup
+      const input = "aabb";
+      const expected = null;
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'a'  => a ", () => {
-      var result = beginner.firstNonRepeatChar("a");
-      expect(result).to.deep.equal("a");
+      // Setup
+      const input = "a";
+      const expected = "a";
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'ab'  => a ", () => {
-      var result = beginner.firstNonRepeatChar("ab");
-      expect(result).to.deep.equal("a");
+      // Setup
+      const input = "ab";
+      const expected = "a";
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'aabbcddee'  => c ", () => {
-      var result = beginner.firstNonRepeatChar("aabbcddee");
-      expect(result).to.deep.equal("c");
+      // Setup
+      const input = "aabbcddee";
+      const expected = "c";
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'abcdedcba'  => e ", () => {
-      var result = beginner.firstNonRepeatChar("abcdedcba");
-      expect(result).to.deep.equal("e");
+      // Setup
+      const input = "abcdedcba";
+      const expected = "e";
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'the quick brown fox jumps then quickly blow air'  => f ", () => {
-      var result = beginner.firstNonRepeatChar("the quick brown fox jumps then quickly blow air");
-      expect(result).to.deep.equal("f");
+      // Setup
+      const input = "the quick brown fox jumps then quickly blow air";
+      const expected = "f";
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 123321 (number)  =>  null", () => {
-      var result = beginner.firstNonRepeatChar(123321);
-      expect(result).to.deep.equal(null);
+      // Setup
+      const input = 123321;
+      const expected = null;
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 12321 (number)  => 3 ", () => {
-      var result = beginner.firstNonRepeatChar(12321);
-      expect(result).to.deep.equal("3");
+      // Setup
+      const input = 12321;
+      const expected = "3";
+      // Exercise
+  		const result = beginner.firstNonRepeatChar(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
   });
 

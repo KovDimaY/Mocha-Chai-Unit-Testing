@@ -725,76 +725,166 @@ describe("SIMPLE ALGORITHMS FOR BEGGINERS", () => {
   // test 9       -------------------------------------------------------------------
   describe("Tags Collector", () => {
     it(" numbers  => [] ", () => {
-      var result = beginner.tagsCollector(2);
-      expect(result).to.deep.equal([]);
+      // Setup
+      const input = 2;
+      const expected = [];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" array  => [] ", () => {
-      var result = beginner.tagsCollector([1, 2, 3]);
-      expect(result).to.deep.equal([]);
+      // Setup
+      const input = [1, 2, 3];
+      const expected = [];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" object  => [] ", () => {
-      var result = beginner.tagsCollector({"a": "value of a", "b": "value of b"});
-      expect(result).to.deep.equal([]);
+      // Setup
+      const input = {"a": "value of a", "b": "value of b"};
+      const expected = [];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" ''  => [] ", () => {
-      var result = beginner.tagsCollector("");
-      expect(result).to.deep.equal([]);
+      // Setup
+      const input = "";
+      const expected = [];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" '  ,  '  => [] ", () => {
-      var result = beginner.tagsCollector("");
-      expect(result).to.deep.equal([]);
+      // Setup
+      const input = '  ,  ';
+      const expected = [];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'Hello'  => ['Hello'] ", () => {
-      var result = beginner.tagsCollector("Hello");
-      expect(result).to.deep.equal(["Hello"]);
+      // Setup
+      const input = "Hello";
+      const expected = ["Hello"];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" '   Hello'  => ['Hello'] ", () => {
-      var result = beginner.tagsCollector("   Hello");
-      expect(result).to.deep.equal(['Hello']);
+      // Setup
+      const input = "   Hello";
+      const expected = ["Hello"];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'Hello   '  => ['Hello'] ", () => {
-      var result = beginner.tagsCollector("Hello   ");
-      expect(result).to.deep.equal(['Hello']);
+      // Setup
+      const input = "Hello   ";
+      const expected = ["Hello"];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" '   Hello   '  => ['Hello'] ", () => {
-      var result = beginner.tagsCollector("   Hello   ");
-      expect(result).to.deep.equal(['Hello']);
+      // Setup
+      const input = "   Hello   ";
+      const expected = ["Hello"];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" ' !   Hello   '  => ['Hello'] ", () => {
-      var result = beginner.tagsCollector(" !   Hello   ");
-      expect(result).to.deep.equal(['Hello']);
+      // Setup
+      const input = " !   Hello   ";
+      const expected = ["Hello"];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" '   Hello   !'  => ['Hello'] ", () => {
-      var result = beginner.tagsCollector("   Hello   !");
-      expect(result).to.deep.equal(['Hello']);
+      // Setup
+      const input = "   Hello   !";
+      const expected = ["Hello"];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" ' !  Hello  ! '  => ['Hello'] ", () => {
-      var result = beginner.tagsCollector(" !  Hello  ! ");
-      expect(result).to.deep.equal(['Hello']);
+      // Setup
+      const input = " !  Hello  ! ";
+      const expected = ["Hello"];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'Hello, world!'  => ['Hello', 'world'] ", () => {
-      var result = beginner.tagsCollector("Hello, world!");
-      expect(result).to.deep.equal(['Hello', 'world']);
+      // Setup
+      const input = "Hello, world!";
+      const expected = ['Hello', 'world'];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'Hello,world'  => ['Hello', 'world'] ", () => {
-      var result = beginner.tagsCollector("Hello,world");
-      expect(result).to.deep.equal(['Hello', 'world']);
+      // Setup
+      const input = "Hello,world";
+      const expected = ['Hello', 'world'];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'Hello world...'  => ['Hello', 'world'] ", () => {
-      var result = beginner.tagsCollector("Hello world...");
-      expect(result).to.deep.equal(['Hello', 'world']);
+      // Setup
+      const input = "Hello world...";
+      const expected = ['Hello', 'world'];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'Hello this big and wanderful world!'  => ['Hello', 'this', 'big', 'and', 'wanderful', 'world'] ", () => {
-      var result = beginner.tagsCollector("  Hello   this big,and wanderful    world !");
-      expect(result).to.deep.equal(['Hello', 'this', 'big', 'and', 'wanderful', 'world']);
+      // Setup
+      const input = "Hello this big and wanderful world!";
+      const expected = ['Hello', 'this', 'big', 'and', 'wanderful', 'world'];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" '  Hello   this big,and wanderful    world !'  => ['Hello', 'this', 'big', 'and', 'wanderful', 'world'] ", () => {
-      var result = beginner.tagsCollector("  Hello   this big,and wanderful    world !");
-      expect(result).to.deep.equal(['Hello', 'this', 'big', 'and', 'wanderful', 'world']);
+      // Setup
+      const input = "  Hello   this big,and wanderful    world !";
+      const expected = ['Hello', 'this', 'big', 'and', 'wanderful', 'world'];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
     it(" 'Hello, hello, Hello, Hello, hello, hello, hello'  => ['Hello', 'hello'] ", () => {
-      var result = beginner.tagsCollector("Hello, hello, Hello, Hello, hello, hello, hello");
-      expect(result).to.deep.equal(['Hello', 'hello']);
+      // Setup
+      const input = "Hello, hello, Hello, Hello, hello, hello, hello";
+      const expected = ['Hello', 'hello'];
+      // Exercise
+  		const result = beginner.tagsCollector(input);
+      // Verify
+      expect(result).to.deep.equal(expected);
     });
   });
 
